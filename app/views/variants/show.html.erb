@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Sku:</strong>
+  <%= @variant.sku %>
+</p>
+
+<p>
+  <strong>Is master:</strong>
+  <%= @variant.is_master %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @variant.price %>
+</p>
+
+<p>
+  <strong>Position:</strong>
+  <%= @variant.position %>
+</p>
+
+<p>
+  <strong>Product:</strong>
+  <%= @variant.product %>
+</p>
+
+<%= link_to 'Edit', edit_variant_path(@variant) %> |
+<%= link_to 'Back', variants_path %>

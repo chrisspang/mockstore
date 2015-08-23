@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :variants
+  resources :variants
   resources :option_values
   resources :option_types
   resources :properties

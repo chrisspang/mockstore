@@ -3,7 +3,7 @@ rails generate scaffold Product name:string description:text available_on:date a
 rails generate scaffold Property name:string presentation:string
 rails generate scaffold OptionType name:string presentation:string position:integer
 rails generate scaffold OptionValue name:string presentation:string position:integer option_type:references
-rails generate scaffold Variant sku:string is_master:boolean price:decimal{10,2} position:integer product:references
+rails generate scaffold Variant sku:string is_master:boolean 'price:decimal{10,2}' position:integer product:references
 
 # Product has_many Properties
 rails generate model ProductProperty value:string position:integer product:references property:references
