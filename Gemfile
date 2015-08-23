@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+ruby '2.2.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.3'
@@ -43,3 +44,13 @@ group :development, :test do
   gem 'spring'
 end
 
+
+group :test, :development do
+   gem 'pry'
+   gem 'pry-remote'
+   gem 'pry-rails'
+   gem 'pry-stack_explorer'
+
+   gem 'dotenv-rails'
+   gem 'growl'
+ end
