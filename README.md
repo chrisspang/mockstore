@@ -9,10 +9,10 @@ rails generate scaffold Variant sku:string is_master:boolean 'price:decimal{10,2
 rails generate model ProductProperty value:string position:integer product:references property:references
 
 # Product has_many OptionTypes
-rails generate model ProductOptionTypes position:integer product:references option_type:references
+rails generate model ProductOptionType position:integer product:references option_type:references
 
 # OptionValues has_and_belongs_to_many Variants
-rails generate model OptionValuesVariant option_value:references variant:references
+rails generate model OptionValueVariant option_value:references variant:references
 # id: false
 # Fix index
 # add_index :option_values_variants, [:option_value_id, :variant_id], :unique => true

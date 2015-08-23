@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150823181937) do
+ActiveRecord::Schema.define(version: 20150823182318) do
 
   create_table "option_types", force: :cascade do |t|
     t.string   "name"
@@ -20,6 +20,15 @@ ActiveRecord::Schema.define(version: 20150823181937) do
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
   end
+
+  create_table "option_value_variants", id: false, force: :cascade do |t|
+    t.integer  "option_value_id"
+    t.integer  "variant_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  add_index "option_value_variants", ["option_value_id", "variant_id"], name: "index_option_value_variants_on_option_value_id_and_variant_id", unique: true
 
   create_table "option_values", force: :cascade do |t|
     t.string   "name"
