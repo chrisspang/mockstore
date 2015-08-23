@@ -12,7 +12,7 @@ rails generate model ProductProperty value:string position:integer product:refer
 rails generate model ProductOptionTypes position:integer product:references option_type:references
 
 # OptionValues has_and_belongs_to_many Variants
-rails generate model OptionValuesVariants option_value:references variant:references
+rails generate model OptionValuesVariant option_value:references variant:references
 # id: false
 # Fix index
 # add_index :option_values_variants, [:option_value_id, :variant_id], :unique => true

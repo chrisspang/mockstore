@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150823181610) do
+ActiveRecord::Schema.define(version: 20150823181937) do
 
   create_table "option_types", force: :cascade do |t|
     t.string   "name"
@@ -31,6 +31,17 @@ ActiveRecord::Schema.define(version: 20150823181610) do
   end
 
   add_index "option_values", ["option_type_id"], name: "index_option_values_on_option_type_id"
+
+  create_table "product_option_types", force: :cascade do |t|
+    t.integer  "position"
+    t.integer  "product_id"
+    t.integer  "option_type_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "product_option_types", ["option_type_id"], name: "index_product_option_types_on_option_type_id"
+  add_index "product_option_types", ["product_id"], name: "index_product_option_types_on_product_id"
 
   create_table "product_properties", force: :cascade do |t|
     t.string   "value"
