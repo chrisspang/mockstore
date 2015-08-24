@@ -20,5 +20,36 @@
   <%= @product.available_until %>
 </p>
 
+<h3>Properties</h3>
+
+<% @product.product_properties.each do |pp| %>
+  <p>
+    <%= link_to "#{pp.property.presentation} (#{pp.property.id}) = #{pp.value}", property_path(pp.property) %>
+  </p>
+<% end %>
+
+<h3>Options</h3>
+
+<% @product.option_types.each do |ot| %>
+  <p>
+    <%= link_to "#{ot.name} (#{ot.id})", option_type_path(ot) %>
+  </p>
+<% end %>
+
+<h3>Variants</h3>
+
+<% @product.variants_including_master.each do |v| %>
+  <p>
+    <%= link_to "#{v.sku} #{v.price} #{v.position} (#{v.id})", variant_path(v) %>
+    <ul>
+      <% @product.option_types.each do |ot| %>
+        <li> <%= ot.name %> = <%= v.option_value(ot.name) %>
+      <% end %>
+      
+    </ul>
+  </p>
+<% end %>
+
+
 <%= link_to 'Edit', edit_product_path(@product) %> |
 <%= link_to 'Back', products_path %>

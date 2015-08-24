@@ -49,6 +49,19 @@ class Product < ActiveRecord::Base
     end
   end
 
+
+  def build_coffee_variants
+    values = option_types.where(name: 'preparation').first.option_values.collect(&:name)
+    puts values
+    values.each do |ot|
+      variant = variants.create(
+        price: master.price
+      )
+      variant.set_option_value('preparation',ot)
+    end
+    save
+  end
+
   private
 
   def ensure_master

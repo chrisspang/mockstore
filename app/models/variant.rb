@@ -1,3 +1,6 @@
+
+# sku:string is_master:bool price:decimal position:int product:ref
+
 class Variant < ActiveRecord::Base
   belongs_to :product, touch: true, inverse_of: :variants
 
